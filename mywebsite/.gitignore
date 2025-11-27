@@ -37,7 +37,6 @@ db.sqlite3-journal
 # Test/Debug files
 test_*.py
 check_*.py
-*.txt
 output.txt
 write_test.txt
 
