@@ -1,18 +1,14 @@
 from django.core.paginator import Paginator
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.db.models import Q, Count
 import difflib
 
-from ..models import Product, Book, BookCopy, Category, Tag
+from ..models import Book, BookCopy, Category, Tag
 
 
 def home(request):
-    all_products = Product.objects.all().order_by('-id')
-    paginator = Paginator(all_products, 3)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    return render(request, "myapp/pages/home.html", {"allproduct": page_obj})
+    """Landing page with hero section"""
+    return render(request, "myapp/pages/home.html")
 
 
 def _descendant_ids(category):
@@ -118,25 +114,6 @@ def contact(request):
         else:
             context['message'] = 'Please fill in all fields: topic, email, and detail.'
     return render(request, 'myapp/pages/contact.html', context)
-
-
-def home2(request):
-    return HttpResponse("<h1>Hello world 2<h1>")
-
-
-def addProduct(request):
-    if request.method == "POST":
-        product = Product(
-            title=request.POST.get('title', '').strip(),
-            description=request.POST.get('description', ''),
-            price=request.POST.get('price') or None,
-            quantity=request.POST.get('quantity') or None,
-            picture=request.FILES.get('picture'),
-            specfile=request.FILES.get('specfile')
-        )
-        product.save()
-        return redirect('home-page')
-    return render(request, "myapp/products/addProduct.html")
 
 
 def handler404(request, exception):

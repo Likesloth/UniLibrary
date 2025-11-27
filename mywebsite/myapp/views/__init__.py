@@ -1,4 +1,4 @@
-from .home import home, library_home, aboutus, contact, home2, handler404, addProduct
+from .home import home, library_home, aboutus, contact, handler404
 from .auth import userLogin, userLogout, userRegist, userProfile, editProfile, settings_view
 from .contacts import (
     showContact,
@@ -43,7 +43,7 @@ from .staff import (
 
 __all__ = [
     # home
-    "home", "library_home", "aboutus", "contact", "home2", "handler404", "addProduct",
+    "home", "library_home", "aboutus", "contact", "handler404",
     # auth
     "userLogin", "userLogout", "userRegist", "userProfile", "editProfile", "settings_view",
     # contacts/actions

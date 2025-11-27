@@ -2,10 +2,9 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    # Home now shows the shop landing page instead of the library grid
+    # Home shows library landing page
     path('', home, name="home-page"),
     path('shop/', home, name="shop-home"),
-    path('home2', home2, name="home2-page"),
     path('about/', aboutus, name="about-page"),
     path('contact/', contact, name="contact-page"),
     path('showcontacts/', showContact, name="showcontact-page"),
@@ -26,8 +25,6 @@ urlpatterns = [
     path('profile/', userProfile, name="profile"),
     path('profile/edit/', editProfile, name="edit_profile"),
     path('settings/', settings_view, name="settings"),
-    # Products
-    path('addproduct/', addProduct, name="add-product"),
     # Catalog
     path('catalog/', catalog_list, name="catalog-list"),
     path('catalog/book/<int:book_id>/', book_detail, name="catalog-detail"),

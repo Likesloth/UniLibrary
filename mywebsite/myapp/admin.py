@@ -44,10 +44,6 @@ except admin.sites.NotRegistered:
 admin.site.register(User, CustomUserAdmin)
 
 
-@admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ("title", "price", "instock")
-    search_fields = ("title",)
 
 
 @admin.register(ContactList)
